@@ -20,9 +20,57 @@ namespace Mariani_Frazione
 
         public Frazione(int numeratore, int denominatore) { Numeratore = numeratore; Denominatore= denominatore; }
 
-        public void Semplifica()
+        private int MCD(int a, int b)
         {
-            if((Numeratore/Denominatore))
+            if (b == 0) return a;
+
+            return MCD(b, a % b);
+        }
+
+        private int MCM(int a, int b)
+        {
+            while (b != 0)
+            {
+                int temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+
+        public Frazione Semplifica(Frazione frazione)
+        {
+            Frazione ritorno = new Frazione();
+
+            int mcd = MCD(frazione.Numeratore, frazione.Denominatore);
+
+            ritorno.Numeratore  = frazione.Numeratore / mcd;
+            ritorno.Denominatore = frazione.Denominatore / mcd;
+
+            return ritorno;
+        }
+
+        public Frazione Somma(Frazione frazione2)
+        {
+
+            Frazione ritorno = new Frazione();
+
+            int numeratore1 = Numeratore;
+            int denominatore1 = Denominatore;
+
+            int numeratore2 = frazione2.Numeratore;
+            int denominatore2 = frazione2.Denominatore;
+
+            if (denominatore1 == denominatore2) { numeratore1 += numeratore2; }
+            else 
+            { 
+                int mcm = MCM(denominatore1, denominatore2);
+                
+                ritorno.Denominatore = mcm;
+                ritorno.Numeratore = numeratore1 + numeratore2;
+            }
+
+            return Semplifica(ritorno);
         }
     }
 }
