@@ -50,13 +50,13 @@ namespace Mariani_Frazione
             return ritorno;
         }
 
-        public Frazione Somma(Frazione frazione2)
+        public Frazione Somma(Frazione frazione1, Frazione frazione2)
         {
 
             Frazione ritorno = new Frazione();
 
-            int numeratore1 = Numeratore;
-            int denominatore1 = Denominatore;
+            int numeratore1 = frazione1.Numeratore;
+            int denominatore1 = frazione1.Denominatore;
 
             int numeratore2 = frazione2.Numeratore;
             int denominatore2 = frazione2.Denominatore;
