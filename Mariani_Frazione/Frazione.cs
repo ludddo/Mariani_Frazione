@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Mariani_Frazione
 {
@@ -69,6 +70,58 @@ namespace Mariani_Frazione
                 ritorno.Denominatore = mcm;
                 ritorno.Numeratore = numeratore1 + numeratore2;
             }
+
+            return Semplifica(ritorno);
+        }
+
+        public Frazione Sottrai(Frazione frazione1, Frazione frazione2)
+        {
+            Frazione ritorno = new Frazione();
+
+            int numeratore1 = frazione1.Numeratore;
+            int denominatore1 = frazione1.Denominatore;
+
+            int numeratore2 = frazione2.Numeratore;
+            int denominatore2 = frazione2.Denominatore;
+
+            if (denominatore1 == denominatore2) { numeratore1 -= numeratore2; }
+            else
+            {
+                int mcm = MCM(denominatore1, denominatore2);
+
+                ritorno.Denominatore = mcm;
+                ritorno.Numeratore = numeratore1 - numeratore2;
+            }
+
+            return Semplifica(ritorno);
+        }
+
+        public Frazione Moltiplica(Frazione frazione1, Frazione frazione2)
+        {
+            Frazione ritorno = new Frazione();
+
+            int numeratore1 = frazione1.Numeratore;
+            int denominatore1 = frazione1.Denominatore;
+
+            int numeratore2 = frazione2.Numeratore;
+            int denominatore2 = frazione2.Denominatore;
+
+            // Moltiplica
+
+            return Semplifica(ritorno);
+        }
+
+        public Frazione Dividi(Frazione frazione1, Frazione frazione2)
+        {
+            Frazione ritorno = new Frazione();
+
+            int numeratore1 = frazione1.Numeratore;
+            int denominatore1 = frazione1.Denominatore;
+
+            int numeratore2 = frazione2.Numeratore;
+            int denominatore2 = frazione2.Denominatore;
+
+            // Dividi
 
             return Semplifica(ritorno);
         }
