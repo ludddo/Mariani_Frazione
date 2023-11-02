@@ -106,7 +106,8 @@ namespace Mariani_Frazione
             int numeratore2 = frazione2.Numeratore;
             int denominatore2 = frazione2.Denominatore;
 
-            // Moltiplica
+            ritorno.Numeratore = frazione1.Numeratore * frazione2.Numeratore;
+            ritorno.Denominatore = frazione1.Denominatore * frazione2.Denominatore;
 
             return Semplifica(ritorno);
         }
@@ -121,7 +122,8 @@ namespace Mariani_Frazione
             int numeratore2 = frazione2.Numeratore;
             int denominatore2 = frazione2.Denominatore;
 
-            // Dividi
+            ritorno.Numeratore = frazione1.Numeratore * frazione2.Denominatore;
+            ritorno.Denominatore = frazione1.Denominatore * frazione2.Numeratore;
 
             return Semplifica(ritorno);
         }
